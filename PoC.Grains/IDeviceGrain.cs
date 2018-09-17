@@ -2,7 +2,7 @@
 
 namespace PoC.Grains
 {
-    public class Class1
+    public interface IDeviceGrain
     {
     }
 }

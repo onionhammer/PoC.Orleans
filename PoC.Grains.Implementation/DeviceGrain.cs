@@ -1,8 +1,7 @@
-﻿using System;
 
 namespace PoC.Grains.Implementation
 {
-    public class Class1
+    public class DeviceGrain : IDeviceGrain
     {
     }
 }
