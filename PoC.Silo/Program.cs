@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PoC.Orleans
+namespace PoC.Silo
 {
     class Program
     {
