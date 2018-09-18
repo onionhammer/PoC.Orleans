@@ -1,15 +1,16 @@
 version: '3.4'
 
 services:
-  poc.api:
-    image: ${DOCKER_REGISTRY}pocapi
-    build:
-      context: ..
-      dockerfile: PoC.API/Dockerfile
-
   poc.silo:
     image: ${DOCKER_REGISTRY}pocsilo
     build:
       context: ..
       dockerfile: PoC.Silo/Dockerfile
 
+  poc.api:
+    image: ${DOCKER_REGISTRY}pocapi
+    depends_on:
+      - poc.silo
+    build:
+      context: ..
+      dockerfile: PoC.API/Dockerfile

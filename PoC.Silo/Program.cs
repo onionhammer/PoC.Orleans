@@ -39,11 +39,12 @@ namespace PoC.Silo
                     options.ServiceId = "PowerCommandCloud";
                     options.ClusterId = "dev"; // TODO Set cluster id
                 })
+                .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
                 .Configure((ProcessExitHandlingOptions options) => options.FastKillOnProcessExit = false)
                 .ConfigureLogging(logging =>
                 {
 #if DEBUG
-                    logging.SetMinimumLevel(LogLevel.Warning);
+                    logging.SetMinimumLevel(LogLevel.Information);
 #else
                     logging.SetMinimumLevel(LogLevel.Error);
 #endif
@@ -52,6 +53,12 @@ namespace PoC.Silo
                 .ConfigureApplicationParts(parts =>
                     parts.AddApplicationPart(typeof(DeviceGrain).Assembly).WithReferences()
                 )
+                /* Configure in-memory storage */
+                .AddMemoryGrainStorageAsDefault()
+                .AddMemoryGrainStorage("PubSubStore")
+                .AddMemoryGrainStorage("GrainStore")
+                .UseInMemoryReminderService()
+                ///////
                 .AddSimpleMessageStreamProvider("SMSProvider", options =>
                 {
                     options.FireAndForgetDelivery    = true;
