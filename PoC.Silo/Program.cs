@@ -36,7 +36,7 @@ namespace PoC.Silo
                 .UseLocalhostClustering()
                 .Configure((ClusterOptions options) =>
                 {
-                    options.ServiceId = "PowerCommandCloud";
+                    options.ServiceId = "PoCService";
                     options.ClusterId = "dev"; // TODO Set cluster id
                 })
                 .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)

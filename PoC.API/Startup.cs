@@ -57,7 +57,7 @@ namespace PoC.API
                 .UseLocalhostClustering()
                 .Configure<ClusterOptions>(options =>
                 {
-                    options.ServiceId = "PowerCommandCloud";
+                    options.ServiceId = "PoCService";
                     options.ClusterId = "dev"; // TODO Set cluster id
                 })
                 .AddSimpleMessageStreamProvider("SMSProvider", options =>
