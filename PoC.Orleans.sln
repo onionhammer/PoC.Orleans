@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoC.Silo", "PoC.Silo\PoC.Si
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoC.Tests", "PoC.Tests\PoC.Tests.csproj", "{F4476645-4F9A-4CBA-9B24-E46F5B482F6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoC.API", "PoC.API\PoC.API.csproj", "{E2553967-AF61-49E5-80C7-C5817667C358}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,17 @@ Global
 		{F4476645-4F9A-4CBA-9B24-E46F5B482F6E}.Release|x64.Build.0 = Release|Any CPU
 		{F4476645-4F9A-4CBA-9B24-E46F5B482F6E}.Release|x86.ActiveCfg = Release|Any CPU
 		{F4476645-4F9A-4CBA-9B24-E46F5B482F6E}.Release|x86.Build.0 = Release|Any CPU
+		{E2553967-AF61-49E5-80C7-C5817667C358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2553967-AF61-49E5-80C7-C5817667C358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2553967-AF61-49E5-80C7-C5817667C358}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E2553967-AF61-49E5-80C7-C5817667C358}.Debug|x64.Build.0 = Debug|Any CPU
+		{E2553967-AF61-49E5-80C7-C5817667C358}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E2553967-AF61-49E5-80C7-C5817667C358}.Debug|x86.Build.0 = Debug|Any CPU
+		{E2553967-AF61-49E5-80C7-C5817667C358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2553967-AF61-49E5-80C7-C5817667C358}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2553967-AF61-49E5-80C7-C5817667C358}.Release|x64.ActiveCfg = Release|Any CPU
+		{E2553967-AF61-49E5-80C7-C5817667C358}.Release|x64.Build.0 = Release|Any CPU
+		{E2553967-AF61-49E5-80C7-C5817667C358}.Release|x86.ActiveCfg = Release|Any CPU
+		{E2553967-AF61-49E5-80C7-C5817667C358}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
