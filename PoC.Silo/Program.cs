@@ -1,11 +1,16 @@
 ﻿using System;
+using System.Net;
+using System.Net.Sockets;
 using System.Runtime.Loader;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Orleans;
+using Orleans.Configuration;
 using Orleans.Hosting;
+using Orleans.Runtime.Configuration;
 using PoC.Grains.Implementation;
 
 namespace PoC.Silo
@@ -29,9 +34,29 @@ namespace PoC.Silo
         {
             silo = new SiloHostBuilder()
                 .UseLocalhostClustering()
+                .Configure((ClusterOptions options) =>
+                {
+                    options.ServiceId = "PowerCommandCloud";
+                    options.ClusterId = "dev"; // TODO Set cluster id
+                })
+                .Configure((ProcessExitHandlingOptions options) => options.FastKillOnProcessExit = false)
+                .ConfigureLogging(logging =>
+                {
+#if DEBUG
+                    logging.SetMinimumLevel(LogLevel.Warning);
+#else
+                    logging.SetMinimumLevel(LogLevel.Error);
+#endif
+                    logging.AddConsole();
+                })
                 .ConfigureApplicationParts(parts =>
                     parts.AddApplicationPart(typeof(DeviceGrain).Assembly).WithReferences()
                 )
+                .AddSimpleMessageStreamProvider("SMSProvider", options =>
+                {
+                    options.FireAndForgetDelivery    = true;
+                    options.OptimizeForImmutableData = true;
+                })
                 .Build();
         }
 
